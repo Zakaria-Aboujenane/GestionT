@@ -1,0 +1,69 @@
+.menuD{
+    margin-top: 100px;
+}
+.navigation{
+    border-bottom: 1px solid #666;
+    font-size: 30px;
+    width: 250px;
+    margin-left: 30px;
+}
+
+ul li{
+    list-style: none;
+    width: 250px;
+    background: rgb(245, 248, 248);
+    border-bottom: 1px solid #666;
+}
+
+ul li a{
+    display: block;
+    padding: 8px;
+    border-left: 4px solid #444;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px #ccc;
+    color: #555;
+}
+
+li a:hover{
+    border-left: 4px solid #069;
+    background: #f8f8f8;
+}
+
+li ul{
+    display: none;
+}
+
+li:hover ul{
+    display: block;
+}
+
+li:hover ul li{
+    background: #333;
+}
+
+li:hover ul li a{
+    color: #ccc;
+}
+
+li:hover ul li a:hover{
+    background: #222;
+    border-left: 4px solid #900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

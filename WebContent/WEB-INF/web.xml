@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.gestiontp.servlets.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>InscriptionServlet</servlet-name>
+		<servlet-class>com.gestiontp.servlets.InscriptionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InscriptionServlet</servlet-name>
+		<url-pattern>/Inscription</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Start</servlet-name>
+		<servlet-class>com.gestiontp.servlets.Start</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Start</servlet-name>
+		<url-pattern>/start</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>com.gestiontp.servlets.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/logout/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>goInsc</servlet-name>
+		<servlet-class>com.gestiontp.servlets.GotoActions.GoToInsc</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>goInsc</servlet-name>
+		<url-pattern>/sinscrire/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>goLogin</servlet-name>
+		<servlet-class>com.gestiontp.servlets.GotoActions.GoToLogin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>goLogin</servlet-name>
+		<url-pattern>/seconnecter/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetTpsE</servlet-name>
+		<servlet-class>com.gestiontp.servlets.AJAXServ</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetTpsE</servlet-name>
+		<url-pattern>/gettpEt/*</url-pattern>
+	</servlet-mapping>
+
+
+
+</web-app>
