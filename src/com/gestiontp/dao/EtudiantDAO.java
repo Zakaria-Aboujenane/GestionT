@@ -60,8 +60,13 @@ public class EtudiantDAO implements EtudiantIDAO {
 
 	@Override
 	public Etudiant getEtudiantByCNE(String CNE) {
-		Etudiant e = session.get(Etudiant.class,CNE);
-		return e;
+		try {
+			Etudiant e = session.get(Etudiant.class,CNE);
+			return e;
+		} catch (Exception e) {
+			return null;
+		}
+	
 		
 	}
 	

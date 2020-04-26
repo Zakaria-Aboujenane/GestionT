@@ -358,10 +358,10 @@ h6 {
     padding-right: 10px;
 }
 .contentFiliere{
-    width: 15%;
+    /* width: 15%; */
     float:left;
-    margin-top: 50px;
-
+    margin-top: 12px;
+    margin-left: 107px;
 }
 .btn-edit:hover{
     background: #262626 ;

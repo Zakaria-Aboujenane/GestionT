@@ -54,23 +54,17 @@ public class InscriptionServlet extends HttpServlet {
 		nom = request.getParameter("nom");
 		prenom = request.getParameter("prenom");
 		email = request.getParameter("email");
-		Password = request.getParameter("MotDePasse");
-		age = request.getParameter("age");
-		System.out.println("hello1");
-		
+		Password = request.getParameter("MotDePasse");	
 		if (request.getParameter("choix").equals("etudiant")) {
-
 			// seul l etudiant a :
-
 			String f = request.getParameter("selectM1");
 			int idF = Integer.parseInt(f);
 			Filiere filiere = metierFiliere.getFiliereById(idF);
 			CNE = request.getParameter("CNE");
-
-			if (metierEtudiant.getEtudiantByCNE(CNE) != null) {
+			if (metierEtudiant.getEtudiantByCNE(CNE) == null) {
 				// creation de l eutudiant:
 				Etudiant e = new Etudiant();
-				e.setAge(Integer.parseInt(age));
+				e.setAge(18);
 				e.setCNE(CNE);
 				e.setEmail(email);
 				e.setFiliere(filiere);
@@ -80,41 +74,39 @@ public class InscriptionServlet extends HttpServlet {
 				e.setRole("Etudiant");
 				// ajout:
 				metierEtudiant.ajouterEtud(e);
-				
 				MESSAGE = "vous avez ete inscrit tant q'etudiant" + " , veuillez entrer vos infos pour vous inscrire:";
+				request.setAttribute("message", MESSAGE);
 				AllerVerLoginPage(request, response);
 			}else {
 				MESSAGE_ERROR = "L etudiant avec CNE: "+CNE+" est deja inscrit!";
-				AllerVerLoginPage(request, response);
+				request.setAttribute("MESSAGE_ERROR", MESSAGE_ERROR);
+				retour(request, response);
 			}
 		}
 		else if (request.getParameter("choix").equals("professeur")) {
-			System.out.println("hello2");
-			String CIN = request.getParameter("cin");
-			System.out.println("hello3");
+
+			String CIN = request.getParameter("CIN");
+
 			if(!metierProfesseur.verifierExis(CIN)) {
 				System.out.println("hello4");
 				Professeur p = new Professeur();
-				p.setAge(Integer.parseInt(age));
+				p.setAge(30);
 				p.setCIN(CIN);
 				p.setEmail(email);
-				System.out.println("coucou1");
 				p.setFilieres(listerFils(request.getParameterValues("FilieresProf")));
-				System.out.println("coucou0.5");
-				System.out.println("coucou2"+p.getFilieres().get(0));
 				p.setMotDePasse(Password);
 				p.setNom(nom);
 				p.setPrenom(prenom);
 				p.setRole("Professeur");
-				System.out.println("coucou4");
 				// ajout du prof:
 				metierProfesseur.ajouterProfesseur(p);
-				System.out.println("good !");
 				MESSAGE = "vous avez ete inscrit tant que prof" + " , veuillez entrer vos infos pour vous inscrire:";
+				request.setAttribute("message", MESSAGE);
 				AllerVerLoginPage(request, response);
 			}else {
 				MESSAGE_ERROR = "Le prof avec CIN: "+CIN+" est deja inscrit!";
-				AllerVerLoginPage(request, response);
+				request.setAttribute("MESSAGE_ERROR", MESSAGE_ERROR);
+				retour(request, response);
 			}
 			
 		}
@@ -146,7 +138,13 @@ public class InscriptionServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		request.setAttribute("MESSAGE", MESSAGE);
-		request.getRequestDispatcher("/GestionTp/login").forward(request, response);
+		request.getRequestDispatcher("./login.jsp").forward(request, response);
+	}
+	public void retour(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.setAttribute("MESSAGE", MESSAGE);
+		request.getRequestDispatcher("./inscription.jsp").forward(request, response);
 	}
 
 }

@@ -8,7 +8,7 @@
 		
 		<li class="item button">
 		
-		<a href="/GestionTp/sinscrire?">Inscription</a>
+		<a href="/GestionTp/sinscrire">Inscription</a>
 		</li>
 		<li class="item button secondary">
 		<a href="/GestionTp/seconnecter?">Connection</a></li>

@@ -22,7 +22,9 @@
 			<form action="#">
 				<input type="text" name="q" id="search">
 			</form>
+			
 			<div class="contentFiliere">
+			<button type="button" class="btn-edit">Ajouter Un tp</button>
 				<select class="input" name="FilieresProf" id="FilieresProf"
 					data-placeholder="veuillez chisir une filiere">
 					<c:forEach items="${requestScope.Filieres}" var="f">
@@ -48,7 +50,7 @@
 						<td>${t.getTitre()}</td>
 						<td>${t.getDateAjout()}</td>
 						<td>${t.getMatiere()}</td>
-						<td>${t.getFiliere()}</td>
+						<td>${t.getFiliere().getNomF()}</td>
 						<td class="actions">
 							<button type="button" class="btn-edit">Modifier</button>
 							<button type="button" class="btn-delete">Supprimer</button>

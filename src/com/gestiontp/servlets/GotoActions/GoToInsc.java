@@ -34,7 +34,7 @@ public class GoToInsc extends HttpServlet {
 		FiliereMetier filiereMetier = new FiliereMetier();
 		List<Filiere> fs = filiereMetier.listerTous();
 		request.setAttribute("filieres", fs);
-		request.getRequestDispatcher("inscription/inscription.jsp").forward(request, response);
+		request.getRequestDispatcher("./inscription.jsp").forward(request, response);
 	}
 
 	/**
