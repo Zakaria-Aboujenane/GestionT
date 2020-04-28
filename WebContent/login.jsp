@@ -76,7 +76,7 @@
 							id="password">
 					</div>
 				</div>
-				<a href="a">Mot de passe oublié</a>
+				
 				<p style="color: red;" id="erreur"></p>
 				<input type="submit" id="submitBtn" class="btn" value="login">
 			</form>

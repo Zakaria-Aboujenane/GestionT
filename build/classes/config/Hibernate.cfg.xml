@@ -26,11 +26,13 @@
 
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
+		<!--  spécifier si on veur voir les requetes SQL dans le Log -->
 
 		<!-- Drop and re-create the database schema on startup -->
 
 		<property name="hibernate.hbm2ddl.auto">update</property>
-
+		
+	<!-- les entites avec lesquels on va travailler: -->
 		<mapping class="com.gestiontp.dao.entities.Etudiant" />
 		<mapping class="com.gestiontp.dao.entities.Professeur" />
 		<mapping class="com.gestiontp.dao.entities.Filiere"/>

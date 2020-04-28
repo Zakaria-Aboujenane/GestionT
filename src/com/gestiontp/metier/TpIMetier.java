@@ -9,7 +9,7 @@ import com.gestiontp.dao.entities.Tp;
 
 public interface TpIMetier {
 
-	public void ajouterTp(Tp tp);
+	public String ajouterTp(Tp tp);
 	public void supprimeTp(Tp tp);
 	public void modifierTp(Tp tp);
 	public List<Tp> listerTous();

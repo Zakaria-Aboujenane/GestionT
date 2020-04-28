@@ -56,7 +56,7 @@
 		<servlet-name>goLogin</servlet-name>
 		<url-pattern>/seconnecter/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetTpsE</servlet-name>
 		<servlet-class>com.gestiontp.servlets.AJAXServ</servlet-class>
@@ -66,6 +66,31 @@
 		<url-pattern>/gettpEt/*</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>AjouterTp</servlet-name>
+		<servlet-class>com.gestiontp.servlets.CRUDActions.AjouterTp</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjouterTp</servlet-name>
+		<url-pattern>/AjouterTp/*</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>voirTpProf</servlet-name>
+		<servlet-class>com.gestiontp.servlets.GotoActions.GoToContenuTpProf</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>voirTpProf</servlet-name>
+		<url-pattern>/voirTpProf/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>supprTp</servlet-name>
+		<servlet-class>com.gestiontp.servlets.CRUDActions.SupprTp</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>supprTp</servlet-name>
+		<url-pattern>/supprTp/*</url-pattern>
+	</servlet-mapping>
 
 </web-app>

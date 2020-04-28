@@ -21,12 +21,13 @@ public class TpDAO implements TpIDAO {
 	private static Session session = HibernateUtil.getHibernateSession();
 
 	@Override
-	public void ajouterTp(Tp tp) {
+	public String ajouterTp(Tp tp) {
 
 		// TODO Auto-generated method stub
 		session.beginTransaction();
-		String s = (String) session.save(tp);
+		int s =  (int) session.save(tp);
 		session.getTransaction().commit();
+		return s+"";
 
 	}
 
@@ -74,8 +75,9 @@ public class TpDAO implements TpIDAO {
 
 	@Override
 	public Tp getTpByidTp(int idTp) {
-
-		session.beginTransaction();
+		if(!session.getTransaction().isActive()) {
+			session.beginTransaction();
+		}
 		// TODO Auto-generated method stub
 		Tp tp = session.get(Tp.class, idTp);
 		session.getTransaction().commit();

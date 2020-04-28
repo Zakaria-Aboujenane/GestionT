@@ -51,20 +51,21 @@ public class AJAXServ extends HttpServlet {
 			throws ServletException, IOException {
 
 		EtudiantIMetier etudiantMetier;
-		TpIMetier tpMet = new TpMetier();
-		tpMet.listerTous();
+		TpIMetier tpMetier = new TpMetier();
+		tpMetier.listerTous();
 		String CNE = request.getParameter("cne");
 		System.out.println("cne : " + CNE);
 		etudiantMetier = new EtudiantMetier();
-		Etudiant etudiant = etudiantMetier.getEtudiantByCNE(CNE);
-		System.out.println("cne : " + etudiant.getNom());
-		List<Tp> tps = etudiantMetier.getEtudiantTp(etudiant);
+		Etudiant e = etudiantMetier.getEtudiantByCNE(CNE);
+		System.out.println("cne : " + e.getNom());
+		List<Tp> tps = etudiantMetier.getEtudiantTp(e);
 		request.setAttribute("tps", tps);
 		
 		String content = "";
 		for (Tp tp : tps) {
+			int dernierD = 7;
 			System.out.println("tp fait :");
-			System.out.println("tp fait :"+tpMet.getFaireTp(tp, etudiant));
+			System.out.println("tp fait :"+tpMetier.getFaireTp(tp, e));
 			content += "  <div class=\"card\">\r\n" + "            <div class=\"thumbnail\">\r\n"
 					+ "                <img src=\"./photo/png.png\" class=\"left\">\r\n" + "            </div>\r\n"
 					+ "            <div class=\"right\">\r\n" + "                <h1>" + tp.getTitre() + "</h1>\r\n"
@@ -75,11 +76,22 @@ public class AJAXServ extends HttpServlet {
 					+ "                <h5>Ajoute le: " + tp.getDateAjout() + "</h5>\r\n"
 					+ "                <h5>Dernier Delai: " + tp.getDateAjout() + "</h5>\r\n"
 					+ "                <h5>Email du prof: " + tp.getProfesseur().getEmail() + "</h5>\r\n"
-					+ "					<h5>Matiere : " + tp.getMatiere() + "</h5>\r\n"
-					+ "                <h5>voir Le tp:  <a href=\"#\">Cliquer ici</a> </p>\r\n"
-					+ "           </div>\r\n" + "           \r\n" + "        </div>";
+					+ "					<h5>Matiere : " + tp.getMatiere() + "</h5>\r\n";
+			if (tpMetier.getFaireTp(tp, e)) {
+				System.out.println("good");
+				content += "<input type=\"checkbox\" checked onchange=\"changeStatusTp(" + tp.getIdTp()
+						+ ")\" name=\"Fairetp\" id=\" " + tp.getIdTp()
+						+ "\"> <span class=\"spanC\">si le tp est fait cocher ici si non <br/> ne cochez pas </span>";
+			} else if (!tpMetier.getFaireTp(tp, e)) {
+				System.out.println("nope");
+				content += "<input type=\"checkbox\" onchange=\"changeStatusTp(" + tp.getIdTp()
+						+ ")\" name=\"Fairetp\" id=\" " + tp.getIdTp()
+						+ " \"> <spanclass=\"spanC\" >si le tp est fait cocher ici si non <br/> ne cochez pas</span>";
+			}
+			content += "                <h5>voir Le tp:  <a href=\"#\">Cliquer ici</a> </p>\r\n"
+					+ "           		</div>\r\n" + "           \r\n" + "        </div>";
 		}
-		etudiant = null;
+		e = null;
 		response.getWriter().print(content);
 	}
 

@@ -8,7 +8,7 @@ import com.gestiontp.dao.entities.Professeur;
 import com.gestiontp.dao.entities.Tp;
 
 public interface TpIDAO {
-	void ajouterTp(Tp tp);
+	String ajouterTp(Tp tp);
 	void supprimeTp(Tp tp);
 	void modifierTp(Tp tp);
 	List<Tp> listerTousTp();

@@ -123,6 +123,7 @@ public class InscriptionServlet extends HttpServlet {
 	}
 
 	// fonction pour recuperer une liste d filieres selon les ids
+	//chaque id a un objet filiere correspendant
 	List<Filiere> listerFils(String[] ids) {
 		List<Filiere> fs = new ArrayList<Filiere>();
 		for (String id : ids) {

@@ -13,9 +13,9 @@ public class TpMetier implements TpIMetier {
 
 	private TpIDAO tpDao=new TpDAO();
 	@Override
-	public void ajouterTp(Tp tp) {
+	public String ajouterTp(Tp tp) {
 		// TODO Auto-generated method stub
-		tpDao.ajouterTp(tp);
+		return tpDao.ajouterTp(tp);
 	}
 
 	@Override

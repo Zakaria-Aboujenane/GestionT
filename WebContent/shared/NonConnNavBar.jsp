@@ -2,9 +2,6 @@
 <nav>
 	<ul class="menu">
 		<li class="logo"><a href="#">GestionTp</a></li>
-		<li class="item"><a href="#">Accueil</a></li>
-		<li class="item"><a href="#">About</a></li>
-		<li class="item"><a href="#">Services</a></li>
 		
 		<li class="item button">
 		
